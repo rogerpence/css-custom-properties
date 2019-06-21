@@ -4,15 +4,15 @@ Except for IE 11, all of the major browsers now fully support CSS custom propert
 
 #### Declaring variables
 
-CSS custom properties are declared in a .CSS file and associated with a scope. The scope is usually either global, which makes the variables available to all other CSS in your app or scoped, which makes the variables available to scoped CSS selector. 
+CSS custom properties are declared in a .CSS file and associated with a scope. The scope is either global, which makes the variables available to all other CSS in your app or scoped to a specific CSS selector, which makes the variables available only for that selector.
 
-For example, the following declares a global variable:
+For example, the following declares a global CSS property:
 
     :root {
         --background-color: #004477;
     }
 
-Any other CSS in your project can use this variable like this:
+Any other CSS in your project can use this property like this:
 
     .button {
         ...
@@ -22,13 +22,13 @@ Any other CSS in your project can use this variable like this:
 
 > :root applies to the document's `html` element.     
 
-Declaring a scoped variable is similar:
+Declaring a scoped property is similar:
 
     .button {
         --background-color: #004477;
     }
 
-the variable below only applies to CSS applied to the .button class: 
+The property above applies to elements with that specific CSS selector applied:
 
     .button {
         ...
@@ -36,7 +36,7 @@ the variable below only applies to CSS applied to the .button class:
         ...
     }
 
-The scoped variable could have also be declared without separating the variable definition from the other `.button` class rules like this: 
+The scoped property could have also been declared without separating the variable definition from the `.button` class rules like this: 
 
     .button {
         --background-color: #004477;
@@ -45,7 +45,7 @@ The scoped variable could have also be declared without separating the variable 
         ...
     }
 
-Usually, though, it's best to declare all of your CSS custom properties in a one place (often a separate CSS file dedicated to declaring variables) and then apply them to other CSS rules as needed. There are some sophisticated uses of custom properties that require scoped properties, but you can get a lot of use out of CSS custom properties declaring only global variables. 
+Usually, though, it's best to declare all of your CSS custom properties in a one place (often in a separate CSS file dedicated to declaring variables) and then apply them to other CSS rules as needed. There are some sophisticated uses of custom properties that require scoped properties, but you can get a lot of use out of CSS custom properties declaring only global variables. 
 
 #### Putting CSS customer properties to work 
 
@@ -93,7 +93,7 @@ The intent here is to have established a primary color and have it be used consi
         ...
     }
 
-By changing the definition of `--primary-color`, you quickly swap out the primary color throughout the entire site. 
+Changing the definition of `--primary-color`, quickly swaps out the primary color throughout the entire site. 
 
 #### CSS custom property considerations
 
@@ -107,7 +107,7 @@ By changing the definition of `--primary-color`, you quickly swap out the primar
 
 * CSS customer property names can quickly spiral out of control. Give some thought to effective CSS property naming conventions. 
 
-* If the same property name is declared globally and as a scoped variable, the scoped variable applies (to its given scope). 
+* If the same property name is declared globally and as a scoped property, the scoped property applies (to its given scope). 
 
 #### CSS custom properties and JavaScript 
 
@@ -127,7 +127,7 @@ There is a simple JavaScript interface to get and set CSS custom property values
 
 ##### Set a scoped property value
 
-The scoped selector used here must match the selector used to define the scoped value.
+The scoped selector used here must match the selector used to define the scoped property.
 
     root = document.querySelector('.message');
     root.style.setProperty('--background-color', 'purple');    
@@ -137,7 +137,7 @@ The scoped selector used here must match the selector used to define the scoped 
     root = getComputedStyle(document.querySelector('.message'));
     console.log(root.getPropertyValue('--text-color'));
 
- Although this interface exists, it takes a special case for it to truly be useful. The couple of times I've used it in the past, I quickly realized I was solving the wrong problem bailed out before creating a bigger problem than the one being solved. Unless you're very careful, you can cause more indirection than its worth. 
+ Although this JavaScript interface exists, it takes a special case for it to truly be useful. The couple of times I've used it ultimately created a bigger problem than the one being solved. Unless you're very careful, you can cause more indirection than its worth. 
 
 #### Further reading:
 
@@ -145,4 +145,4 @@ The scoped selector used here must match the selector used to define the scoped 
 * [CSS custom properties W3C spec](https://drafts.csswg.org/css-variables/#intro) 
 * [Clever, sophisticated use of CSS custom properties.](https://codyhouse.co/blog/post/css-custom-properties-vs-sass-variables) 
 * [A practical guide to CSS custom variables](https://www.sitepoint.com/practical-guide-css-variables-custom-properties/)
-* [Using CSS custom properties to defining responsive breakpoints](https://css-tricks.com/responsive-designs-and-css-custom-properties-defining-variables-and-breakpoints/)
+* [Using CSS custom properties to define responsive breakpoints](https://css-tricks.com/responsive-designs-and-css-custom-properties-defining-variables-and-breakpoints/)
