@@ -1,0 +1,7 @@
+.message {
+    /* background-color: var(--background-color);
+    color: var(--text-color); */
+    background-color: #004477;
+    color: #fff;
+    padding: 10px;
+}

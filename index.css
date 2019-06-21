@@ -1,0 +1,22 @@
+:root {
+    --bg-default-color: red; 
+    --bg-new-color: rebeccapurple;  
+    --right: 0;
+}
+
+
+div.test {
+    --bg-color: green;
+    background-color:var(--bg-color);
+    width: 4rem;
+    height: 4rem;
+}
+
+div.test-right {
+    background-color: navy;
+    position: absolute;
+    top: 8rem;
+    left: var(--right);    
+    width: 14rem;
+    height: 4rem;
+}

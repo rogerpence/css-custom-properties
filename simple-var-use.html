@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+         :root {
+            --page-background-color: pink;
+            --background-color: green;
+        }
+        
+        .message {
+            --background-color: #004477;
+            --text-color: #fff;
+        }
+        
+        .message {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 10px;
+        }
+        
+        .message2 {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 10px;
+        }
+        
+        body {
+            background-color: var(--page-background-color);
+        }
+        
+        .button {
+            background-color: #004477;
+        }
+        
+        .standard-border {
+            border: 1x solid #004477;
+        }
+        
+        .menu-text-color {
+            color: #004477;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="message">
+        Hello, world 'message'
+    </div>
+    <div class="message2">
+        Good-bye, world
+    </div>
+    <div class="message3">
+        Good-bye, world
+    </div>
+</body>
+
+<script>
+    // Get global value.
+    let root = document.documentElement;
+    root.style.setProperty('--page-background-color', 'azure');
+
+    // Set global value.
+    root = getComputedStyle(document.documentElement);
+    console.log(root.getPropertyValue('--page-background-color'));
+
+    // Get local value.
+    root = getComputedStyle(document.querySelector('.message'));
+    //console.log(root.getPropertyValue('--text-color'));
+
+    // Set local value.        
+    root = document.querySelector('.message');
+    //root.style.setProperty('--background-color', 'purple');
+</script>
+
+</html>
